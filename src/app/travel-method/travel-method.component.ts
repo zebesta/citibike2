@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Transmethod} from '../transmethod';
+import { Travelcard } from '../travelcard';
 
 @Component({
   selector: 'app-travel-method',
@@ -7,11 +9,15 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TravelMethodComponent implements OnInit {
 
-  @Input() input: number;
+  @Input() input: Transmethod;
 
   constructor() { }
 
   ngOnInit() {
+    console.log(JSON.stringify(this.input.travelCards));
+  }
+  goToMap(tc: Travelcard){
+    console.log(tc.type);
   }
 
 }

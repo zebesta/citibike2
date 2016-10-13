@@ -1,5 +1,5 @@
 export class Travelcard {
-  type: "walking";
+  type: string;
   time: number;
   timeString: string;
   startLoc: string;

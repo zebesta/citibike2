@@ -1,6 +1,3 @@
-<p>
-  form works!
-</p>
 <div class="container">
   <div class="row">
 
@@ -23,6 +20,11 @@
             <button (click)="calculateRouteTime()" class="btn btn-default">Calculate route times!</button>
       </div>
     </div>
-    <button (click)="submit()">Click me!</button>
   </div>
+    <div class="row">
+      <app-travel-method *ngFor="let transmethod of transmethods"
+        class="col-xs-12 col-sm-12 col-md-6 col-lg-4"
+        [input]="transmethod">
+      </app-travel-method>
+    </div>
 </div>

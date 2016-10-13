@@ -1,4 +1,14 @@
-<p>
-  travel-method works!
-</p>
-{{input}}
+<div class="panel panel-default">
+  <div class="panel-heading">{{input.title | uppercase}}</div>
+    <div class="panel-body">
+      <ul>
+        <li *ngFor="let tc of input.travelCards" (click)="goToMap(tc)">
+          <span class="badge">{{tc.type}}</span><br>
+          {{tc.timeString}} <br>
+          Start: {{tc.startLoc}} <br>
+          End: {{tc.endLoc}} <br>
+        </li>
+      </ul>
+
+    </div>
+</div>
