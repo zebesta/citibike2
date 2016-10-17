@@ -19,8 +19,10 @@ export class TravelMethodComponent implements OnInit {
     console.log(JSON.stringify(this.input.travelCards));
   }
   goToMap(tc: Travelcard){
+    // TODO: fix this! a jank way to toggle the view and refresh the child component
+    this.showMap = !this.showMap;
     this.selectedTc = tc;
-    this.showMap = true;
+    // this.showMap = true;
     console.log(tc.type);
   }
 

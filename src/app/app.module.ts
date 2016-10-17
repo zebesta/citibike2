@@ -10,6 +10,7 @@ import { TravelMethodComponent } from './travel-method/travel-method.component';
 import { MapComponent } from './map/map.component';
 
 import { AgmCoreModule } from 'angular2-google-maps/core';
+import { MapsRawComponent } from './maps-raw/maps-raw.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
     FormComponent,
     TravelOptionsComponent,
     TravelMethodComponent,
-    MapComponent
+    MapComponent,
+    MapsRawComponent
   ],
   imports: [
     BrowserModule,
