@@ -46,7 +46,7 @@ export class MapsRawComponent implements OnInit {
         directionsService.route({
           origin: this.tc.startLoc,
           destination: this.tc.endLoc,
-          travelMode: 'DRIVING'
+          travelMode: this.tc.type.toUpperCase()
         }, function(response, status) {
           if (status === 'OK') {
             directionsDisplay.setDirections(response);
