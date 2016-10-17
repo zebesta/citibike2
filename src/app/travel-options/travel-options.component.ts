@@ -7,8 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TravelOptionsComponent implements OnInit {
 
-  heroes = [1,2,3,4,5];
-
   constructor() { }
 
   ngOnInit() {
