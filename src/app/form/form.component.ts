@@ -10,7 +10,7 @@ import { Transmethod } from '../transmethod';
 })
 export class FormComponent implements OnInit {
 
-  startAddress: string = "70 Maujer, Brooklyn";
+  startAddress: string = "618 Grand St, Brooklyn";
   endAddress: string = "455 Broadway, New York";
   addresses: Addresses;
   errorMessage: any;
