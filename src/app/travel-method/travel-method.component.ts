@@ -12,6 +12,7 @@ export class TravelMethodComponent implements OnInit {
   selectedTc: Travelcard;
   totalTime: number =0;
   totalTimeString: string;
+  columnClass: string = "col-lg-4";
 
   @Input() input: Transmethod;
 
@@ -28,6 +29,12 @@ export class TravelMethodComponent implements OnInit {
     // TODO: fix this! a jank way to toggle the view and refresh the child component
     this.showMap = !this.showMap;
     this.selectedTc = tc;
+    //resize component column size based on if map is shown or not
+    if(this.showMap){
+      this.columnClass = "col-lg-12";
+    }else{
+      this.columnClass = "col-lg-4";
+    }
     // this.showMap = true;
     console.log(tc.type);
   }

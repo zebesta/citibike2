@@ -1,18 +1,22 @@
-<div class="panel panel-default">
-  <div class="panel-heading">{{input.title | uppercase}}</div>
-    <div class="panel-body">
-      <div *ngIf="totalTimeString">{{totalTimeString}}</div>
-      <ul>
-        <li *ngFor="let tc of input.travelCards" (click)="goToMap(tc)">
-          <span class="badge">{{tc.type}}</span><br>
-          {{tc.timeString}} <br>
-          Start: {{tc.startLoc}} <br>
-          End: {{tc.endLoc}} <br>
-        </li>
-      </ul>
-      <div *ngIf="showMap">
-        <!-- <app-map [tc]="selectedTc"></app-map> -->
-        <app-maps-raw [tc]="selectedTc"></app-maps-raw>
+<!-- <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4" -->
+<div [ngClass]="columnClass">
+  <div class="panel panel-default">
+    <div class="panel-heading">{{input.title | uppercase}}</div>
+      <div class="panel-body">
+        <div *ngIf="totalTimeString">{{totalTimeString}}</div>
+        <ul>
+          <li *ngFor="let tc of input.travelCards">
+            <span class="badge">{{tc.type}}</span><br>
+            {{tc.timeString}} <br>
+            Start: {{tc.startLoc}} <br>
+            End: {{tc.endLoc}} <br>
+            <button (click)="goToMap(tc)" class="btn btn-default">Get Directions</button>
+          </li>
+        </ul>
       </div>
-    </div>
+  </div>
+  <div *ngIf="showMap">
+    <!-- <app-map [tc]="selectedTc"></app-map> -->
+    <app-maps-raw [tc]="selectedTc"></app-maps-raw>
+  </div>
 </div>
