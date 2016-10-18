@@ -1,6 +1,7 @@
 <div class="panel panel-default">
   <div class="panel-heading">{{input.title | uppercase}}</div>
     <div class="panel-body">
+      <div *ngIf="totalTimeString">{{totalTimeString}}</div>
       <ul>
         <li *ngFor="let tc of input.travelCards" (click)="goToMap(tc)">
           <span class="badge">{{tc.type}}</span><br>
