@@ -1,10 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-heading">{{input.title | uppercase}}</div>
     <div class="panel-body">
-      <div *ngIf="showMap">
-        <!-- <app-map [tc]="selectedTc"></app-map> -->
-        <app-maps-raw [tc]="selectedTc"></app-maps-raw>
-      </div>
       <ul>
         <li *ngFor="let tc of input.travelCards" (click)="goToMap(tc)">
           <span class="badge">{{tc.type}}</span><br>
@@ -13,6 +9,9 @@
           End: {{tc.endLoc}} <br>
         </li>
       </ul>
-
+      <div *ngIf="showMap">
+        <!-- <app-map [tc]="selectedTc"></app-map> -->
+        <app-maps-raw [tc]="selectedTc"></app-maps-raw>
+      </div>
     </div>
 </div>

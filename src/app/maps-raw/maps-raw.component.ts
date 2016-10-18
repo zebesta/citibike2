@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Travelcard } from '../travelcard';
 declare var google: any;
 
@@ -15,11 +15,20 @@ export class MapsRawComponent implements OnInit {
   centerLat: number;
   centerLng: number;
   zoom: number = 12;
+  elemId: string = "googleMap_";
 
   @Input() tc: Travelcard;
+  @ViewChild('myMap') myMap;
 
   constructor() { }
 
+  // ngAfterViewInit() {
+  //
+  //   console.log(this.myMap.nativeElement);
+  //
+  //     // Another way to set attribute value to element
+  //     // this.renderer.setElementAttribute(this.player, 'src', this.src);
+  // }
   ngOnInit() {
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -28,32 +37,34 @@ export class MapsRawComponent implements OnInit {
             center: new google.maps.LatLng(this.tc.startLocLat, this.tc.startLocLng),
             zoom: 12,
             mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-        directionsDisplay.setMap(map);
+    };
+    // var elementId = this.elemId;
+    console.log("Element id: " + this.elemId);
+    var map = new google.maps.Map(this.myMap.nativeElement, mapProp);
+    directionsDisplay.setMap(map);
 
-        var startLoc = {lat: this.tc.startLocLat, lng: this.tc.startLocLng};
-        var endLoc = {lat: this.tc.endLocLat, lng: this.tc.endLocLng};
-        // var startMarker = new google.maps.Marker({
-        //   position: startLoc,
-        //   map: map
-        // });
-        // var endMarker = new google.maps.Marker({
-        //   position: endLoc,
-        //   map: map
-        // });
+    var startLoc = {lat: this.tc.startLocLat, lng: this.tc.startLocLng};
+    var endLoc = {lat: this.tc.endLocLat, lng: this.tc.endLocLng};
+    // var startMarker = new google.maps.Marker({
+    //   position: startLoc,
+    //   map: map
+    // });
+    // var endMarker = new google.maps.Marker({
+    //   position: endLoc,
+    //   map: map
+    // });
 
-        directionsService.route({
-          origin: this.tc.startLoc,
-          destination: this.tc.endLoc,
-          travelMode: this.tc.type.toUpperCase()
-        }, function(response, status) {
-          if (status === 'OK') {
-            directionsDisplay.setDirections(response);
-          } else {
-            window.alert('Directions request failed due to ' + status);
-          }
-        });
+    directionsService.route({
+      origin: this.tc.startLoc,
+      destination: this.tc.endLoc,
+      travelMode: this.tc.type.toUpperCase()
+    }, function(response, status) {
+      if (status === 'OK') {
+        directionsDisplay.setDirections(response);
+      } else {
+        window.alert('Directions request failed due to ' + status);
+      }
+    });
 
 
         // function calculateAndDisplayRoute(directionsService, directionsDisplay) {
