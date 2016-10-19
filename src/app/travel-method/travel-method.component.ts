@@ -8,13 +8,13 @@ import { Travelcard } from '../travelcard';
   styleUrls: ['./travel-method.component.css'],
   animations: [
     trigger('flyInOut', [
-      state('in', style({transform: 'translateY(0)'})),
+      state('in', style({transform: 'translateY(0)', opacity: 1})),
       transition('void => *', [
-        style({transform: 'translateY(100%)'}),
+        style({transform: 'translateY(100%)', opacity: 0}),
         animate(300)
       ]),
       transition('* => void', [
-        animate(300, style({transform: 'translateY(-100%)'}))
+        animate(300, style({transform: 'translateY(-100%)', opacity: 0}))
       ])
     ])
   ]
@@ -24,7 +24,9 @@ export class TravelMethodComponent implements OnInit {
   selectedTc: Travelcard;
   totalTime: number =0;
   totalTimeString: string;
-  columnClass: string = "col-lg-4";
+  large: string = "col-xs-12 col-sm-12 col-md-12 col-lg-12";
+  small: string = "col-xs-12 col-sm-12 col-md-6 col-lg-6";
+  columnClass: string = this.small;
 
   @Input() input: Transmethod;
 
@@ -43,9 +45,9 @@ export class TravelMethodComponent implements OnInit {
     this.selectedTc = tc;
     //resize component column size based on if map is shown or not
     if(this.showMap){
-      this.columnClass = "col-xs-12 col-sm-12 col-md-12 col-lg-12";
+      this.columnClass = this.large;
     }else{
-      this.columnClass = "col-xs-12 col-sm-12 col-md-6 col-lg-6";
+      this.columnClass = this.small;
     }
     // this.showMap = true;
     console.log(tc.type);

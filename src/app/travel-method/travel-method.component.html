@@ -16,10 +16,10 @@
             <button (click)="goToMap(tc)" class="btn btn-default">Get Directions</button>
           </li>
         </ul>
+        <div *ngIf="showMap">
+          <!-- <app-map [tc]="selectedTc"></app-map> -->
+          <app-maps-raw [tc]="selectedTc"></app-maps-raw>
+        </div>
       </div>
-  </div>
-  <div *ngIf="showMap">
-    <!-- <app-map [tc]="selectedTc"></app-map> -->
-    <app-maps-raw [tc]="selectedTc"></app-maps-raw>
   </div>
 </div>
