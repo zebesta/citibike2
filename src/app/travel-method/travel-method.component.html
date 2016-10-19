@@ -1,5 +1,8 @@
 <!-- <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4" -->
-<div [ngClass]="columnClass">
+<div [ngClass]="columnClass"
+(@flyInOut.start)="animationStarted($event)"
+(@flyInOut.done)="animationDone($event)"
+[@flyInOut]="'in'">
   <div class="panel panel-default">
     <div class="panel-heading">{{input.title | uppercase}}</div>
       <div class="panel-body">

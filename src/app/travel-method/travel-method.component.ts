@@ -1,11 +1,23 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, trigger, state, style, animate, transition } from '@angular/core';
 import { Transmethod} from '../transmethod';
 import { Travelcard } from '../travelcard';
 
 @Component({
   selector: 'app-travel-method',
   templateUrl: './travel-method.component.html',
-  styleUrls: ['./travel-method.component.css']
+  styleUrls: ['./travel-method.component.css'],
+  animations: [
+    trigger('flyInOut', [
+      state('in', style({transform: 'translateY(0)'})),
+      transition('void => *', [
+        style({transform: 'translateY(100%)'}),
+        animate(300)
+      ]),
+      transition('* => void', [
+        animate(300, style({transform: 'translateY(-100%)'}))
+      ])
+    ])
+  ]
 })
 export class TravelMethodComponent implements OnInit {
   showMap: boolean = false;
@@ -31,9 +43,9 @@ export class TravelMethodComponent implements OnInit {
     this.selectedTc = tc;
     //resize component column size based on if map is shown or not
     if(this.showMap){
-      this.columnClass = "col-lg-12";
+      this.columnClass = "col-xs-12 col-sm-12 col-md-12 col-lg-12";
     }else{
-      this.columnClass = "col-lg-4";
+      this.columnClass = "col-xs-12 col-sm-12 col-md-6 col-lg-6";
     }
     // this.showMap = true;
     console.log(tc.type);
@@ -49,5 +61,11 @@ export class TravelMethodComponent implements OnInit {
     }
     return timeString;
   };
+  animationStarted(event){
+    console.log("ANIMATION STARTED!");
+  }
+  animationDone(event){
+    console.log("ANIMATION DONE!");
+  }
 
 }
