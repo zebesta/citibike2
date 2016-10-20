@@ -2,7 +2,7 @@
   <div class="row">
 
     <!-- text entry for addresses and button to find address via google maps -->
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 address-form col-centered">
       <div>
             <div class="form-group">
               <label for="start-address">Starting Address:</label>
@@ -20,7 +20,7 @@
       </div>
     </div>
   </div>
-    <div class="row">
+    <div class="row travel-methods">
       <app-travel-method *ngFor="let transmethod of transmethods"
         [input]="transmethod">
       </app-travel-method>

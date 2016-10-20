@@ -8,4 +8,6 @@ export class Travelcard {
   endLoc: string;
   endLocLat: number;
   endLocLng: number;
+  bikes: number;
+  docks: number;
 }

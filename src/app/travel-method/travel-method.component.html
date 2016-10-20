@@ -13,6 +13,10 @@
             {{tc.timeString}} <br>
             Start: {{tc.startLoc}} <br>
             End: {{tc.endLoc}} <br>
+            <div *ngIf="input.title=='citibiking'">
+              Bikes: {{tc.bikes}} <br>
+              Docks: {{tc.docks}} <br>
+            </div>
             <button (click)="goToMap(tc)" class="btn btn-default">Get Directions</button>
           </li>
         </ul>
