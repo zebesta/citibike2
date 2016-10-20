@@ -10,8 +10,8 @@ import { Transmethod } from '../transmethod';
 })
 export class FormComponent implements OnInit {
 
-  startAddress: string = "618 Grand St, Brooklyn";
-  endAddress: string = "455 Broadway, New York";
+  startAddress: string;
+  endAddress: string;
   addresses: Addresses;
   errorMessage: any;
   transmethods: Transmethod[];
@@ -21,6 +21,39 @@ export class FormComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+  }
+
+
+  getLocation(){
+    // position: any;
+    console.log("Getting location!");
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition.bind(this));
+    }else{
+      console.log("Location not allowed!");
+    }
+    function showPosition(position) {
+        console.log("Latitude: " + position.coords.latitude);
+        console.log("Longitude: " + position.coords.longitude);
+        this.startAddress = position.coords.latitude + ", " + position.coords.longitude;
+        this.getLocationCoded();
+    }
+  }
+
+  setStartAddress(lat, lng){
+    this.startAddress = "" + lat + ", " + lng;
+  }
+  getLocationCoded(){
+    this.citibikeService.getLocation(this.startAddress)
+      .then(res=>{
+        console.log("OMG RESPONSE FOR GET LOC CODED");
+        console.log(res);
+        // this.addresses.start = res;
+        this.startAddress = res.start;
+      })
+      .catch(error=>{
+        this.errorMessage =<any>error
+      });
   }
 
   submit() {

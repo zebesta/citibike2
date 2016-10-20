@@ -15,8 +15,8 @@ export class CitibikeService {
   ) { }
 
   private citibikeStationsUrl = 'https://feeds.citibikenyc.com/stations/stations.json';
-  // private serverUrl = 'http://localhost:3000';
-  private serverUrl = 'http://mysterious-mesa-23106.herokuapp.com';
+  private serverUrl = 'http://localhost:3000';
+  // private serverUrl = 'http://mysterious-mesa-23106.herokuapp.com';
   private testUrl = this.serverUrl + '/helloworld';
 
   private extractData(res: Response){
@@ -44,15 +44,15 @@ export class CitibikeService {
                 .then(this.extractData)
                 .catch(this.handleError);
   }
-  getSomething(): Promise<any>{
-    console.log("Trying to get something from service!");
-    // console.log(this.http.get(this.testUrl));
-
-    return this.http.get(this.testUrl)
-      .toPromise()
-      .then(this.extractData)
-      .catch(this.handleError);
-  }
+  // getSomething(): Promise<any>{
+  //   console.log("Trying to get something from service!");
+  //   // console.log(this.http.get(this.testUrl));
+  //
+  //   return this.http.get(this.testUrl)
+  //     .toPromise()
+  //     .then(this.extractData)
+  //     .catch(this.handleError);
+  // }
   getAddress(start, end): Promise<any>{
     console.log("Trying to get address from service!: ");
     // console.log(this.http.get(this.testUrl));
@@ -63,6 +63,17 @@ export class CitibikeService {
       .then(this.extractData)
       .catch(this.handleError);
   }
+  getLocation(start): Promise<any>{
+    console.log("Trying to get address from service!: ");
+    // console.log(this.http.get(this.testUrl));
+    // var fullUrl = this.serverUrl + '/address/' + address;
+
+    return this.http.get(this.serverUrl+'/start/'+start)
+      .toPromise()
+      .then(this.extractData)
+      .catch(this.handleError);
+  }
+
   getTravelTimes(addresses): Promise<any>{
     console.log("Trying to get travel times from service!" + this.serverUrl+'/calc/startll/' + JSON.stringify(addresses.startLatLng)+ '/endll/' + JSON.stringify(addresses.endLatLng));
     return this.http.get(this.serverUrl+'/calc/startll/' + JSON.stringify(addresses.startLatLng) + '/endll/' + JSON.stringify(addresses.endLatLng))
