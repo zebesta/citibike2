@@ -12,10 +12,13 @@
             <span class="badge">{{tc.type}}</span><br>
             {{tc.timeString}} <br>
             Start: {{tc.startLoc}} <br>
+            <div *ngIf="input.title=='citibiking' && tc.type=='bicycling'">
+              <b>Bikes: {{tc.bikes}}</b> <br>
+              <br>
+            </div>
             End: {{tc.endLoc}} <br>
-            <div *ngIf="input.title=='citibiking'">
-              Bikes: {{tc.bikes}} <br>
-              Docks: {{tc.docks}} <br>
+            <div *ngIf="input.title=='citibiking' && tc.type=='bicycling'">
+              <b>Docks: {{tc.docks}} </b><br>
             </div>
             <button (click)="goToMap(tc)" class="btn btn-default">Get Directions</button>
           </li>
