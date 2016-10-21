@@ -1,4 +1,24 @@
-<p>
-  map-detail works!
-</p>
-{{tm}}
+<div *ngFor="let tc of tm.travelCards" class="pad">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+      <div class="pad">
+        <span class="badge">{{tc.type}}</span><br>
+        {{tc.timeString}} <br>
+        Start: {{tc.startLoc}} <br>
+        <div *ngIf="tm.title=='citibiking' && tc.type=='bicycling'">
+          <b>Bikes: {{tc.bikes}}</b> <br>
+          <br>
+        </div>
+        End: {{tc.endLoc}} <br>
+        <div *ngIf="tm.title=='citibiking' && tc.type=='bicycling'">
+          <b>Docks: {{tc.docks}} </b><br>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
+      <div class="pad">
+        <app-maps-raw [tc]="tc"></app-maps-raw>
+      </div>
+    </div>
+  </div>
+</div>
