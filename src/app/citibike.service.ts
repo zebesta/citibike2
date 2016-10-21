@@ -38,6 +38,7 @@ export class CitibikeService {
 
 
   private handleError (error: any) {
+    console.log("Please select valid addresses for transportation");
     console.log("Error!!! " + error);
     // In a real world app, we might use a remote logging infrastructure
     // We'd also dig deeper into the error to get a better message

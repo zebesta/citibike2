@@ -16,6 +16,7 @@ export class FormComponent implements OnInit {
   addresses: Addresses;
   errorMessage: any;
   transmethods: Transmethod[];
+  invalid: string;
 
 
   constructor(
@@ -61,6 +62,9 @@ export class FormComponent implements OnInit {
 
   submit() {
   console.log("You clicked submit!");
+  //reset old values
+  this.invalid = null;
+  this.transmethods = null;
 
   this.citibikeService.getAddress(this.startAddress, this.endAddress)
     .then(
@@ -77,10 +81,20 @@ export class FormComponent implements OnInit {
     this.citibikeService.getTravelTimes(this.addresses)
       .then(
         res =>{
+          if(res){
+            this.transmethods = res;
+          }else{
+            this.invalid = "Please select locations that can be travelled between."
+          }
+          console.log("empty string maybe being returned here?!?")
           console.log(JSON.stringify(res));
-          this.transmethods = res;
+
         }, error => this.errorMessage = <any>error
-      );
+      )
+      .catch(err=>{
+        console.log("OMG FORM IS SHOWING THE ERROR!!");
+        console.log(err);
+      });
 
   }
 
