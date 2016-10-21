@@ -11,7 +11,9 @@
                      id="startAddress"
                      required
                      #addressForm="ngModel">
-                     <button (click)="getLocation()" class="btn btn-default">Get Location</button>
+                     <button (click)="getLocation()" class="btn btn-default" align="left">&#8982;</button>
+
+                     <button (click)="swapAddresses()" class="btn btn-default" align="right">&#8693;</button>
                      <br>
 
 
@@ -24,7 +26,7 @@
                      #addressForm="ngModel">
             </div>
             <button (click)="submit()" class="btn btn-default" [disabled]="!addressForm.valid">Check Addresses</button>
-            <button (click)="calculateRouteTime()" class="btn btn-default" [disabled]="!addressForm.valid">Calculate Route Times</button>
+            <button (click)="calculateRouteTime()" class="btn btn-default" [disabled]="!addresses">Calculate Route Times</button>
       </div>
     </div>
   </div>

@@ -16,6 +16,7 @@ export class FormComponent implements OnInit {
   errorMessage: any;
   transmethods: Transmethod[];
 
+
   constructor(
     private citibikeService: CitibikeService
   ) { }
@@ -79,6 +80,25 @@ export class FormComponent implements OnInit {
         }, error => this.errorMessage = <any>error
       );
 
+  }
+
+  //swap starting and ending addresses
+  swapAddresses(){
+    var temp1 = this.startAddress;
+
+    this.startAddress = this.endAddress;
+    this.endAddress = temp1;
+
+    if(this.addresses){
+      var temp2 = this.addresses.start;
+      var temp3 = this.addresses.startLatLng;
+
+      this.addresses.start = this.addresses.end;
+      this.addresses.end = temp2;
+
+      this.addresses.startLatLng = this.addresses.endLatLng;
+      this.addresses.endLatLng = temp3;
+    }
   }
 
 }
