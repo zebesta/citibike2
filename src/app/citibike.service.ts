@@ -28,6 +28,7 @@ export class CitibikeService {
     return body;
   }
 
+  //using the service to pass variables between independant router outets
   setTm(tm){
     this.tmToMap = tm;
   }
@@ -54,19 +55,8 @@ export class CitibikeService {
                 .then(this.extractData)
                 .catch(this.handleError);
   }
-  // getSomething(): Promise<any>{
-  //   console.log("Trying to get something from service!");
-  //   // console.log(this.http.get(this.testUrl));
-  //
-  //   return this.http.get(this.testUrl)
-  //     .toPromise()
-  //     .then(this.extractData)
-  //     .catch(this.handleError);
-  // }
   getAddress(start, end): Promise<any>{
     console.log("Trying to get address from service!: ");
-    // console.log(this.http.get(this.testUrl));
-    // var fullUrl = this.serverUrl + '/address/' + address;
 
     return this.http.get(this.serverUrl+'/start/'+start + '/end/' + end)
       .toPromise()
@@ -75,8 +65,6 @@ export class CitibikeService {
   }
   getLocation(start): Promise<any>{
     console.log("Trying to get address from service!: ");
-    // console.log(this.http.get(this.testUrl));
-    // var fullUrl = this.serverUrl + '/address/' + address;
 
     return this.http.get(this.serverUrl+'/start/'+start)
       .toPromise()
@@ -91,15 +79,5 @@ export class CitibikeService {
       .then(this.extractData)
       .catch(this.handleError);
   }
-  // addPlant(name: string, type: string, color: string, imageurl: string): Promise<Plant> {
-  //   let body = JSON.stringify({ name, type, color, imageurl });
-  //   let headers = new Headers({ 'Content-Type': 'application/json' });
-  //   let options = new RequestOptions({ headers: headers });
-  //   return this.http.post(this.plantsUrl, body, options)
-  //              .toPromise()
-  //              .then(this.extractData)
-  //              .catch(this.handleError);
-  // }
-
 
 }
