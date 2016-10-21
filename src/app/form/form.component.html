@@ -10,7 +10,7 @@
                      [(ngModel)]="startAddress"
                      id="startAddress"
                      required
-                     #spy="ngModel">
+                     #addressForm="ngModel">
                      <button (click)="getLocation()" class="btn btn-default">Get Location</button>
                      <br>
 
@@ -21,10 +21,10 @@
                      [(ngModel)]="endAddress"
                      id="endAddress"
                      required
-                     #spy="ngModel">
+                     #addressForm="ngModel">
             </div>
-            <button (click)="submit()" class="btn btn-default">Check Addresses</button>
-            <button (click)="calculateRouteTime()" class="btn btn-default">Calculate Route Times</button>
+            <button (click)="submit()" class="btn btn-default" [disabled]="!addressForm.valid">Check Addresses</button>
+            <button (click)="calculateRouteTime()" class="btn btn-default" [disabled]="!addressForm.valid">Calculate Route Times</button>
       </div>
     </div>
   </div>
