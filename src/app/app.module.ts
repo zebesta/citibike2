@@ -11,6 +11,9 @@ import { MapComponent } from './map/map.component';
 
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import { MapsRawComponent } from './maps-raw/maps-raw.component';
+import { MapDetailComponent } from './map-detail/map-detail.component';
+
+import { AppRoutingModule }     from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,8 @@ import { MapsRawComponent } from './maps-raw/maps-raw.component';
     TravelOptionsComponent,
     TravelMethodComponent,
     MapComponent,
-    MapsRawComponent
+    MapsRawComponent,
+    MapDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +31,8 @@ import { MapsRawComponent } from './maps-raw/maps-raw.component';
     HttpModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCew4HQlvQXau-LP9DIIDG-mwSe2WtTBXM'
-    })
+    }),
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

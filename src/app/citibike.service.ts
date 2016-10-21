@@ -3,12 +3,14 @@ import { Headers, Http, Response, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import { Addresses } from './addresses';
-import { Travelcard } from './travelcard'
+import { Travelcard } from './travelcard';
+import { Transmethod } from './transmethod';
 
 
 
 @Injectable()
 export class CitibikeService {
+  private tmToMap: Transmethod;
 
   constructor(
     private http: Http
@@ -25,6 +27,14 @@ export class CitibikeService {
     // return body.data || { };
     return body;
   }
+
+  setTm(tm){
+    this.tmToMap = tm;
+  }
+  getTm(): Transmethod{
+    return this.tmToMap;
+  }
+
 
   private handleError (error: any) {
     console.log("Error!!! " + error);

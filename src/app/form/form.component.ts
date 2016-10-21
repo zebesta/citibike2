@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CitibikeService} from '../citibike.service';
 import { Addresses } from '../addresses';
 import { Transmethod } from '../transmethod';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -18,6 +19,7 @@ export class FormComponent implements OnInit {
 
 
   constructor(
+    private router: Router,
     private citibikeService: CitibikeService
   ) { }
 

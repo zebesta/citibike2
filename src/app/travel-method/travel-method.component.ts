@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, trigger, state, style, animate, transition } from '@angular/core';
 import { Transmethod} from '../transmethod';
 import { Travelcard } from '../travelcard';
+import { CitibikeService } from '../citibike.service';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-travel-method',
@@ -30,7 +32,10 @@ export class TravelMethodComponent implements OnInit {
 
   @Input() input: Transmethod;
 
-  constructor() { }
+  constructor(
+    private citibikeService: CitibikeService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     console.log(JSON.stringify(this.input.travelCards));
@@ -68,6 +73,13 @@ export class TravelMethodComponent implements OnInit {
   }
   animationDone(event){
     console.log("ANIMATION DONE!");
+  }
+
+  mapDetail(tm){
+    console.log("In Map detail!!!!");
+    this.citibikeService.setTm(tm);
+    let link = ['map'];
+    this.router.navigate(link);
   }
 
 }
