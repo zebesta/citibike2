@@ -10,8 +10,8 @@ import { Transmethod } from '../transmethod';
 })
 export class FormComponent implements OnInit {
 
-  startAddress: string;
-  endAddress: string;
+  startAddress: string="";
+  endAddress: string="";
   addresses: Addresses;
   errorMessage: any;
   transmethods: Transmethod[];

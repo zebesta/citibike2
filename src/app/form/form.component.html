@@ -5,16 +5,23 @@
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 address-form col-centered">
       <div>
             <div class="form-group">
-              <label for="start-address">Starting Address:</label>
+              <label for="startAddress">Starting Address:</label>
               <input type="text" class="form-control"
-                     [(ngModel)]="startAddress">
+                     [(ngModel)]="startAddress"
+                     id="startAddress"
+                     required
+                     #spy="ngModel">
                      <button (click)="getLocation()" class="btn btn-default">Get Location</button>
-            </div>
+                     <br>
 
-            <div class="form-group">
-              <label for="end-address">Ending Address:</label>
+
+
+              <label for="endAddress">Ending Address:</label>
               <input type="text"  class="form-control"
-                     [(ngModel)]="endAddress">
+                     [(ngModel)]="endAddress"
+                     id="endAddress"
+                     required
+                     #spy="ngModel">
             </div>
             <button (click)="submit()" class="btn btn-default">Check Addresses</button>
             <button (click)="calculateRouteTime()" class="btn btn-default">Calculate Route Times</button>
