@@ -14,7 +14,6 @@
             Start: {{tc.startLoc}} <br>
             <div *ngIf="input.title=='citibiking' && tc.type=='bicycling'">
               <b>Bikes: {{tc.bikes}}</b> <br>
-              <br>
             </div>
             End: {{tc.endLoc}} <br>
             <div *ngIf="input.title=='citibiking' && tc.type=='bicycling'">
@@ -27,7 +26,7 @@
           <!-- <app-map [tc]="selectedTc"></app-map> -->
           <app-maps-raw [tc]="selectedTc"></app-maps-raw>
         </div>
-        <button (click)="mapDetail(input)" class="btn btn-default">View Directions Maps!</button>
+        <button (click)="mapDetail(input)" class="btn btn-default">View Directions</button>
       </div>
   </div>
 </div>

@@ -21,6 +21,12 @@ export class MapDetailComponent implements OnInit {
 
   ngOnInit() {
     this.tm = this.citibikeService.getTm();
+
+    //if there is no information, send user back to the forms page
+    if(!this.tm){
+      let link = ['form'];
+      this.router.navigate(link);
+    }
   }
 
 }
