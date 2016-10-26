@@ -28,14 +28,6 @@ export class CitibikeService {
     return body;
   }
 
-  //using the service to pass variables between independant router outets
-  setTm(tm){
-    this.tmToMap = tm;
-  }
-  getTm(): Transmethod{
-    return this.tmToMap;
-  }
-
 
   private handleError (error: any) {
     console.log("Please select valid addresses for transportation");
@@ -79,6 +71,14 @@ export class CitibikeService {
       .toPromise()
       .then(this.extractData)
       .catch(this.handleError);
+  }
+
+  //using the service to pass variables between independant router outets
+  setTm(tm){
+    this.tmToMap = tm;
+  }
+  getTm(): Transmethod{
+    return this.tmToMap;
   }
 
 }
