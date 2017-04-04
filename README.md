@@ -1,5 +1,10 @@
 # Citibike2
+Do you use Citibike but find the mobile app terrible? Are you trying to awkwardly plan a bike route using google maps and then wondering where you can find or park your Citibike for the route? Do you find yourself wondering if theres a bike at your starting station, whether or not you’ll be able to park it once you get to your destination, and how long the whole ordeal will take? Me too, so I decided to do something about it.
 
+An app development and learning experiment in Angular 2, Node, and Express with GoogleMaps and Citibike apis.
+
+
+# Angular CLI stuff:
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.16.
 
 ## Development server
@@ -19,7 +24,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/). 
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 Before running the tests make sure you are serving the app via `ng serve`.
 
 ## Deploying to Github Pages
