@@ -3,6 +3,8 @@ Do you use Citibike but find the mobile app terrible? Are you trying to awkwardl
 
 An app development and learning experiment in Angular 2, Node, and Express with GoogleMaps and Citibike apis.
 
+Read more about this [here](http://chrissebesta.com/2016-10-19-citibikeroutingapp/)
+
 
 # Angular CLI stuff:
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.16.
